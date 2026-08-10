@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Billufy - AI-Powered Billing Platform"
+version = "1.0.0"
+id = "artifacts/billufy"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18162
+
+[services.development]
+run = "pnpm --filter @workspace/billufy run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/billufy", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/billufy/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18162"
+BASE_PATH = "/"
