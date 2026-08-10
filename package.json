@@ -74,5 +74,5 @@
     "wouter": "^3.3.5",
     "zod": "catalog:"
   },
-  "packageManager": "pnpm@11.13.1"
+  "packageManager": "pnpm@10.13.1"
 }
